@@ -89,7 +89,7 @@ export default function Movie() {
     <>
       <Grid container mb={10} spacing={3}>
         <Grid item xs={12}>
-          <Stack direction="row" alignItems="center" justifyContent="space-between">
+          <Stack direction={{ md: 'row' }} alignItems="center" justifyContent="space-between" spacing={{ xs: 4, md: 0 }}>
             <TextField
               variant="outlined"
               value={search}
@@ -155,9 +155,9 @@ export default function Movie() {
           {loading ? (
             <Grid container>
               <Grid item xs={12}>
-                <Grid container spacing={3}>
-                  {[1, 2, 3, 4].map((item, key) => (
-                    <Grid item xs={6} sm={4} md={3} key={key}>
+                <Grid container spacing={1}>
+                  {[1, 2, 3, 4].map((item) => (
+                    <Grid item xs={6} sm={4} md={3} key={item}>
                       <Card sx={{ height: '100%', backgroundColor: 'transparent' }}>
                         <CardMedia>
                           <Skeleton variant="rectangular" width="100%" height={300} sx={{ bgcolor: 'grey.500' }} />
@@ -171,7 +171,7 @@ export default function Movie() {
           ) : (
             <Grid container spacing={3}>
               <Grid item xs={12}>
-                <Grid container spacing={3}>
+                <Grid container spacing={1}>
                   {movies?.map((item, key) => (
                     <Grid item xs={6} sm={4} md={3} key={key}>
                       <Card sx={{ height: '100%', bgcolor: 'transparent', boxShadow: 0, cursor: 'pointer' }} onClick={() => handleOpen(item)}>
